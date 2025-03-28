@@ -1,5 +1,5 @@
 .file "app.s 008-write"
-
+,0         
 .data
 str:
     .ascii "Wadim & Oleg\n"
