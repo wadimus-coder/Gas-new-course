@@ -1,5 +1,6 @@
 .file "app.s 009-mode_address"
 .data
+ data:
     .byte 0x12
     .byte 0x34
     .byte 0x56
@@ -20,9 +21,20 @@ _start:
     #2.Косвенная адресация
     //movq $0x402008,%rbx
     //movq $M,%rbx
-    leaq M,%rbx
+   // leaq M,%rbx
 
-    movw (%rbx),%ax
+   // movw 0(%rbx),%ax
+
+    // movq $data,%rbx
+    // movb 3(%rbx),%al
+
+   # 3.Косвенное адресация
+        //Текущее смещение
+        //leaq data,%rbx
+        movq $data,%rbx
+        movq $0,%rcx
+
+        movb 3(%rbx,%rcx),%al
 
 
     //exit
@@ -47,3 +59,14 @@ Dump of assembler code for function _start:
    0x000000000040101d <+29>:    syscall
    */
    
+/*Breakpoint 1, 0x0000000000401000 in _start ()
+(gdb) disassemble
+Dump of assembler code for function _start:
+=> 0x0000000000401000 <+0>:     endbr64
+   0x0000000000401004 <+4>:     mov    $0x402000,%rbx
+   0x000000000040100b <+11>:    mov    $0x0,%rcx
+   0x0000000000401012 <+18>:    mov    0x3(%rbx,%rcx,1),%al
+   0x0000000000401016 <+22>:    mov    $0x3c,%rax
+   0x000000000040101d <+29>:    mov    $0x0,%rdi
+   0x0000000000401024 <+36>:    syscall
+   */
