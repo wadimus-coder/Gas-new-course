@@ -1,0 +1,29 @@
+    .file "app.s 013-ext_bin"
+
+    .data 
+str:
+    .byte 0x41
+    .byte 0x20
+    .byte 0x73
+    .byte 0x20
+    .byte 0x6d
+    .byte 0x0a
+
+    .text
+    .globl _start
+_start:
+ 
+    endbr64
+
+    movq $1,%rax
+    movq $1,%rdi
+    leaq str(%rip),%rsi
+    movq $6,%rdx
+    syscall
+
+//exit 
+movq $60,%rax
+movq $0,%rdi
+syscall
+
+
