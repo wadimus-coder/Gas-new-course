@@ -6,7 +6,7 @@ str:
 
     .text
     .global main
-    .type _main, @function
+    .type main, @function
 main:
 
     endbr64    #defense from rop

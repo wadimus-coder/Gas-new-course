@@ -1,0 +1,40 @@
+
+app.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <input_str>:
+   0:	55                   	push   %rbp
+   1:	48 89 e5             	mov    %rsp,%rbp
+   4:	48 83 ec 10          	sub    $0x10,%rsp
+   8:	48 89 34 24          	mov    %rsi,(%rsp)
+   c:	48 c7 c0 00 00 00 00 	mov    $0x0,%rax
+  13:	0f 05                	syscall 
+  15:	48 8b 34 24          	mov    (%rsp),%rsi
+  19:	c6 04 06 00          	movb   $0x0,(%rsi,%rax,1)
+  1d:	c9                   	leave  
+  1e:	c3                   	ret    
+
+000000000000001f <display>:
+  1f:	55                   	push   %rbp
+  20:	48 89 e5             	mov    %rsp,%rbp
+  23:	48 c7 c0 01 00 00 00 	mov    $0x1,%rax
+  2a:	0f 05                	syscall 
+  2c:	5d                   	pop    %rbp
+  2d:	c3                   	ret    
+
+000000000000002e <main>:
+  2e:	f3 0f 1e fa          	endbr64 
+  32:	55                   	push   %rbp
+  33:	48 89 e5             	mov    %rsp,%rbp
+  36:	48 c7 c7 01 00 00 00 	mov    $0x1,%rdi
+  3d:	48 8d 35 00 00 00 00 	lea    0x0(%rip),%rsi        # 44 <main+0x16>
+  44:	48 c7 c2 09 00 00 00 	mov    $0x9,%rdx
+  4b:	e8 00 00 00 00       	call   50 <main+0x22>
+  50:	48 c7 c7 01 00 00 00 	mov    $0x1,%rdi
+  57:	48 8d 35 00 00 00 00 	lea    0x0(%rip),%rsi        # 5e <main+0x30>
+  5e:	48 89 c2             	mov    %rax,%rdx
+  61:	e8 00 00 00 00       	call   66 <main+0x38>
+  66:	c9                   	leave  
+  67:	c3                   	ret    
