@@ -26,7 +26,11 @@ main:
     callq display
 
     leave
-    retq
+
+	retq
+exit
+
+    
     
 
 

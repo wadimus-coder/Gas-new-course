@@ -5,4 +5,4 @@ app.o :app.s
 clean :
 	 rm *.exe  *.o
 run:
-	app.exe
+	./app.exe
