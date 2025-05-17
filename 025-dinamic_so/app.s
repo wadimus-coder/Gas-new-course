@@ -27,3 +27,5 @@ main:
         .size main,.-main
 
         ;//gcc app.s -o app.exe -L . ./lib_io.so
+        ;//gcc app.o -o app.exe -L / /mnt/c/GasCatalog/New_course/025-dinamic_so/lib.so
+                                                          

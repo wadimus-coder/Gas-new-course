@@ -9,6 +9,7 @@
     movq %rsp,%rbp
 
     movb $0x23,-2(%rsi,%rdx)
+    movb $0x26,-3(%rsi,%rdx)
     movq $1,%rax
     syscall
 
