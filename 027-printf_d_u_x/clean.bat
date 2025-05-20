@@ -1,0 +1,2 @@
+del *o *.exe
+cls
